@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" ng-app="coffrefortApp">
+<head>
+  <link rel="shortcut icon" href="coffre.ico" type="image/x-icon"/> 
+  <link rel="icon" href="coffre.ico" type="image/x-icon"/>
+  <meta charset="utf-8">
+  <title>Coffre fort</title>
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script>
+	var angularData = [{"directoryName":".","files":[]},{"directoryName":"..","files":[]},{"directoryName":"Aviva","files":[]},{"directoryName":"GDF","files":[{"name":"GDF-Facture_ 03_02_2012.pdf","type":"pdf","url":"\/homepages\/3\/d333316483\/htdocs\/ludo\/coffre-fort\/..\/casperjs\/custom\/\/GDF\/GDF-Facture_ 03_02_2012.pdf","img":"http:\/\/www.sft-congres.fr\/Images\/Public\/\/PAGE__17__122013--347-1.gif","date":"03_02_2012"},{"name":"GDF-Facture_05_02_2013.pdf","type":"pdf","url":"\/homepages\/3\/d333316483\/htdocs\/ludo\/coffre-fort\/..\/casperjs\/custom\/\/GDF\/GDF-Facture_05_02_2013.pdf","img":"http:\/\/www.sft-congres.fr\/Images\/Public\/\/PAGE__17__122013--347-1.gif","date":"05_02_2013"}]},{"directoryName":"Orange-Internet","files":[{"name":"Orange-Internet_facture du 18_01_2013.pdf","type":"pdf","url":"\/homepages\/3\/d333316483\/htdocs\/ludo\/coffre-fort\/..\/casperjs\/custom\/\/Orange-Internet\/Orange-Internet_facture du 18_01_2013.pdf","img":"http:\/\/www.sft-congres.fr\/Images\/Public\/\/PAGE__17__122013--347-1.gif","date":"18_01_2013"},{"name":"Orange-Internet_facture du 18_04_2013.pdf","type":"pdf","url":"\/homepages\/3\/d333316483\/htdocs\/ludo\/coffre-fort\/..\/casperjs\/custom\/\/Orange-Internet\/Orange-Internet_facture du 18_04_2013.pdf","img":"http:\/\/www.sft-congres.fr\/Images\/Public\/\/PAGE__17__122013--347-1.gif","date":"18_04_2013"},{"name":"Orange-Internet_facture du 18_07_2013.pdf","type":"pdf","url":"\/homepages\/3\/d333316483\/htdocs\/ludo\/coffre-fort\/..\/casperjs\/custom\/\/Orange-Internet\/Orange-Internet_facture du 18_07_2013.pdf","img":"http:\/\/www.sft-congres.fr\/Images\/Public\/\/PAGE__17__122013--347-1.gif","date":"18_07_2013"},{"name":"Orange-Internet_facture du 18_09_2013.pdf","type":"pdf","url":"\/homepages\/3\/d333316483\/htdocs\/ludo\/coffre-fort\/..\/casperjs\/custom\/\/Orange-Internet\/Orange-Internet_facture du 18_09_2013.pdf","img":"http:\/\/www.sft-congres.fr\/Images\/Public\/\/PAGE__17__122013--347-1.gif","date":"18_09_2013"},{"name":"Orange-Internet_facture du 18_10_2013.pdf","type":"pdf","url":"\/homepages\/3\/d333316483\/htdocs\/ludo\/coffre-fort\/..\/casperjs\/custom\/\/Orange-Internet\/Orange-Internet_facture du 18_10_2013.pdf","img":"http:\/\/www.sft-congres.fr\/Images\/Public\/\/PAGE__17__122013--347-1.gif","date":"18_10_2013"},{"name":"Orange-Internet_facture du 19_06_2013.pdf","type":"pdf","url":"\/homepages\/3\/d333316483\/htdocs\/ludo\/coffre-fort\/..\/casperjs\/custom\/\/Orange-Internet\/Orange-Internet_facture du 19_06_2013.pdf","img":"http:\/\/www.sft-congres.fr\/Images\/Public\/\/PAGE__17__122013--347-1.gif","date":"19_06_2013"},{"name":"Orange-Internet_facture du 20_02_2013.pdf","type":"pdf","url":"\/homepages\/3\/d333316483\/htdocs\/ludo\/coffre-fort\/..\/casperjs\/custom\/\/Orange-Internet\/Orange-Internet_facture du 20_02_2013.pdf","img":"http:\/\/www.sft-congres.fr\/Images\/Public\/\/PAGE__17__122013--347-1.gif","date":"20_02_2013"},{"name":"Orange-Internet_facture du 20_03_2013.pdf","type":"pdf","url":"\/homepages\/3\/d333316483\/htdocs\/ludo\/coffre-fort\/..\/casperjs\/custom\/\/Orange-Internet\/Orange-Internet_facture du 20_03_2013.pdf","img":"http:\/\/www.sft-congres.fr\/Images\/Public\/\/PAGE__17__122013--347-1.gif","date":"20_03_2013"},{"name":"Orange-Internet_facture du 20_11_2013.pdf","type":"pdf","url":"\/homepages\/3\/d333316483\/htdocs\/ludo\/coffre-fort\/..\/casperjs\/custom\/\/Orange-Internet\/Orange-Internet_facture du 20_11_2013.pdf","img":"http:\/\/www.sft-congres.fr\/Images\/Public\/\/PAGE__17__122013--347-1.gif","date":"20_11_2013"},{"name":"Orange-Internet_facture du 21_05_2013.pdf","type":"pdf","url":"\/homepages\/3\/d333316483\/htdocs\/ludo\/coffre-fort\/..\/casperjs\/custom\/\/Orange-Internet\/Orange-Internet_facture du 21_05_2013.pdf","img":"http:\/\/www.sft-congres.fr\/Images\/Public\/\/PAGE__17__122013--347-1.gif","date":"21_05_2013"},{"name":"Orange-Internet_facture du 21_08_2013.pdf","type":"pdf","url":"\/homepages\/3\/d333316483\/htdocs\/ludo\/coffre-fort\/..\/casperjs\/custom\/\/Orange-Internet\/Orange-Internet_facture du 21_08_2013.pdf","img":"http:\/\/www.sft-congres.fr\/Images\/Public\/\/PAGE__17__122013--347-1.gif","date":"21_08_2013"}]}];
+  </script>
+  <script src="lib/angular/angular.js"></script>
+  <script src="js/controllers.js"></script>
+ 
+</head>
+<body ng-controller="FacturesListCtrl">
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2">
+        <!--Sidebar content-->
+
+        Search: <input ng-model="query">
+        Sort by:
+        <select ng-model="orderProp">
+          <option value="url" ng-selected="reverse=true">Alphabetical</option>
+          <option value="date" ng-selected="reverse=true">Newest</option>
+        </select>
+
+      </div>
+      <div class="span10">
+        <!--Body content-->
+		<div ng-repeat="directory in directories">
+		{{directory.directoryName}}
+        <ul class="files">
+		  <li ng-repeat="file in directory.files | filter:query | orderBy:orderProp:reverse">
+            <a href='{{file.url}}'>{{file.name}}</a>
+          </li>
+        </ul>
+		</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

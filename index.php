@@ -40,6 +40,8 @@ foreach($directories as $directoryName => $files)
 		
 		preg_match("/(0[1-9]|[12][0-9]|3[01])[_](0[1-9]|1[012])[_](19|20)\d\d/", $fileName, $matches);
 		$filesData[$index]["date"] = $matches[0];
+		$filesData[$index]["timestamp"] = strtotime(str_replace("_","-",$matches[0]));
+
 		$index++;
 	}
 	$directoryData["files"] = $filesData;

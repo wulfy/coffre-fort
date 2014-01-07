@@ -1,5 +1,6 @@
 <?php
 $collectorCommand = "";
+set_time_limit(10);
 
 if(isset($_GET["collector"]) && !empty($_GET["collector"]))
 {
@@ -12,9 +13,9 @@ if(isset($_GET["debug"]) && !empty($_GET["debug"]))
 	if(!!$_GET["debug"])
 		$collectorCommand .= " --log-level='debug'";
 }
-
+/*
 $fullpath = realpath(dirname(__FILE__));
-$collectorCommand .= " --fullpath='$fullpath'";
+$collectorCommand .= " --fullpath='$fullpath'";*/
 
 $command = '/kunden/homepages/3/d333316483/htdocs/ludo/coffre-fort/casperjs/bin/casperjs --ignore-ssl-errors=yes --web-security=no'.
 ' /kunden/homepages/3/d333316483/htdocs/ludo/coffre-fort/collecteurs/collector.js '.$collectorCommand;
@@ -22,6 +23,6 @@ $command = '/kunden/homepages/3/d333316483/htdocs/ludo/coffre-fort/casperjs/bin/
 echo "<pre>";
 $data = system($command);
 echo "</pre>";
-
-//echo $command."\r\n";
-//echo $data;
+/*
+echo $command."\r\n";
+echo $data;*/
